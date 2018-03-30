@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+</head>
+<style>
+    input[type='text']{
+        border: none;
+    }
+
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+</style>
+<body>
+<p>Учебная работа на осенний семестр 201_/1_ учебного года</p>
+<p>Аудиторная нагрузка</p>
+
+<p>Всего <span data-bind='text: Lines().length'>&nbsp;</span> строки</p>
+<div>
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+            <th rowspan="2">
+                <p align="center">№ п/п</p>
+            </th>
+            <th rowspan="2">
+                <p align="center">Название дисциплины</p>
+            </th>
+            <th rowspan="2">
+                <p align="center"><a>Код направл. подготовки/спец.</a></p>
+            </th>
+            <th rowspan="2">
+                <p align="center">№ группы</p>
+            </th>
+            <th colspan="9">
+                <p align="center">Вид занятий и их трудоемкость (час)</p>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Лекции
+            </th>
+            <th>
+                Практ. занятия
+            </th>
+            <th>
+                Лаб.раб.
+            </th>
+            <th>
+                Курсовая работа/
+                проект
+            </th>
+            <th>
+                Консул.
+            </th>
+            <th>
+                Зачет/диф. зачет
+            </th>
+            <th>
+                Экзамен
+            </th>
+            <th>
+                Контр. раб. заочн.
+            </th>
+            <th>
+                Итого
+            </th>
+        </tr>
+        </thead>
+        <tbody data-bind='foreach: Lines'>
+        <tr>
+            <td><span data-bind="text: ($index() + 1)"></span></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: nameOfDiscipline'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: codOfDirection'/></td>
+            <td><input type="number" class="form-control no-border" maxlength="4" data-bind='value: numOfGroup'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfLections'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfPractice'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfLabs'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfKursprojects'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfKonsult'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfZachet'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfExams'/></td>
+            <td><input type="number" class="form-control no-border" data-bind='value: hoursOfKontr'/></td>
+            <td><input type="number" class="form-control no-border" readonly data-bind='value: totalHours'/></td>
+            <td><button class="btn btn-dark" data-bind='click: $root.removeLine'>Delete</button></td>
+        </tr>
+        </tbody>
+        <tr>
+            <td>Всего</td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+            <td><input type="text" class="form-control no-border" readonly data-bind='value: totalOfKontr'/></td>
+        </tr>
+    </table>
+</div>
+<button class="btn btn-dark" data-bind='click: $root.addLine'>Add Line</button>
+
+</body>
+<script type='text/javascript' src='lib/knockout.js'></script>
+<script type='text/javascript' src='v1.js'></script>
+
+</html>
